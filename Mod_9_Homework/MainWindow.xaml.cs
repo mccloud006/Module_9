@@ -24,5 +24,26 @@ namespace Mod_9_Homework
         {
             InitializeComponent();
         }
+
+        //Collection to store student objects using List<T>
+        List<Student> student = new List<Student>();
+        
+        private void btnCreateStudent_Click(object sender, RoutedEventArgs e)
+        {
+            //Assign variables
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string city = txtCity.Text;
+
+            //New student
+            Student student = new Student(firstName, lastName, city);
+            this.student.Add(student);
+
+            //Clear textboxes
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtCity.Clear();
+
+        }
     }
 }
