@@ -10,16 +10,14 @@ namespace Mod_9_Homework
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime Dob { get; set; }
-        public Stack<double> grades;
-        public static int StudentCount = 0;
+        public string City { get; set; }
+        
 
-        public Student(string firstName, string lastName, DateTime dob)
+        public Student(string firstName, string lastName, string city)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.Dob = dob;
-            this.grades = new Stack<double>();
+            this.City = city;
         }              
     }
 }
