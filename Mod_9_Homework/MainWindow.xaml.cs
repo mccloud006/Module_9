@@ -25,6 +25,9 @@ namespace Mod_9_Homework
             InitializeComponent();
         }
 
+        //Base index
+        int index = 0;
+
         //Collection to store student objects using List<T>
         List<Student> student = new List<Student>();
         
@@ -42,8 +45,37 @@ namespace Mod_9_Homework
             //Clear textboxes
             txtFirstName.Clear();
             txtLastName.Clear();
-            txtCity.Clear();
+            txtCity.Clear();   
+        }
 
+        //View Student
+        private void ViewStudent(Student student)
+        {
+            txtFirstName.Text = student.FirstName;
+            txtLastName.Text = student.LastName;
+            txtCity.Text = student.City;
+        }
+
+        //Next button
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            this.index++;
+            ViewStudent(this.student[this.index]);
+            UpdateButtons();
+        }
+
+        //Previous button
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            this.index--;
+            ViewStudent(this.student[this.index]);
+            UpdateButtons();
+        }
+
+        private void UpdateButtons()
+        {
+            btnPrevious.IsEnabled = !(this.index <= 0);
+            btnNext.IsEnabled = !(this.index == (this.student.Count -1));
         }
     }
 }
